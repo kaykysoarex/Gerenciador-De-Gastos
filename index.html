@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Simulador de Gastos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <div class="hero__content">
+        <p class="hero__badge">Controle financeiro pessoal</p>
+        <h1>Simulador de Gastos</h1>
+        <p class="hero__text">
+          Registre seus gastos, acompanhe o total e entenda para onde seu dinheiro está indo.
+        </p>
+      </div>
+    </section>
+
+    <section class="dashboard">
+      <aside class="panel panel--form" aria-labelledby="form-title">
+        <header class="panel__header">
+          <h2 id="form-title">Novo gasto</h2>
+          <p>Preencha os dados para adicionar um lançamento.</p>
+        </header>
+
+        <form class="expense-form">
+          <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <input
+              type="text"
+              id="descricao"
+              name="descricao"
+              placeholder="Ex: Almoço, Uber, Mercado"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="valor">Valor</label>
+            <input
+              type="number"
+              id="valor"
+              name="valor"
+              placeholder="Ex: 25.90"
+              step="0.01"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="categoria">Categoria</label>
+            <select id="categoria" name="categoria">
+              <option value="">Selecione uma categoria</option>
+              <option value="comida">Comida</option>
+              <option value="transporte">Transporte</option>
+              <option value="lazer">Lazer</option>
+              <option value="contas">Contas</option>
+              <option value="saude">Saúde</option>
+              <option value="outros">Outros</option>
+            </select>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" id="btnAdicionar" class="btn btn--primary">
+              Adicionar gasto
+            </button>
+            <button type="button" id="btnLimpar" class="btn btn--ghost">
+              Limpar campos
+            </button>
+          </div>
+        </form>
+
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+      </aside>
+
+      <section class="content">
+        <section class="panel panel--summary" aria-labelledby="summary-title">
+          <header class="panel__header">
+            <h2 id="summary-title">Resumo financeiro</h2>
+            <p>Visão geral dos seus lançamentos.</p>
+          </header>
+
+          <div class="summary-grid">
+            <article class="summary-card summary-card--total">
+              <span class="summary-card__label">Total geral</span>
+              <strong class="summary-card__value" id="totalGeral">R$ 0,00</strong>
+            </article>
+
+            <article class="summary-card">
+              <span class="summary-card__label">Maior gasto</span>
+              <strong class="summary-card__value" id="maiorGasto">R$ 0,00</strong>
+            </article>
+
+            <article class="summary-card">
+              <span class="summary-card__label">Quantidade</span>
+              <strong class="summary-card__value" id="quantidadeGastos">0</strong>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel panel--filters" aria-labelledby="filter-title">
+          <header class="panel__header">
+            <h2 id="filter-title">Filtros</h2>
+            <p>Filtre os lançamentos por categoria.</p>
+          </header>
+
+          <div class="filter-group">
+            <button type="button" class="filter-btn is-active">Todos</button>
+            <button type="button" class="filter-btn">Comida</button>
+            <button type="button" class="filter-btn">Transporte</button>
+            <button type="button" class="filter-btn">Lazer</button>
+            <button type="button" class="filter-btn">Contas</button>
+            <button type="button" class="filter-btn">Saúde</button>
+            <button type="button" class="filter-btn">Outros</button>
+          </div>
+        </section>
+
+        <section class="panel panel--list" aria-labelledby="list-title">
+          <header class="panel__header panel__header--row">
+            <div>
+              <h2 id="list-title">Lançamentos</h2>
+              <p>Seus gastos aparecerão abaixo.</p>
+            </div>
+            <span class="list-counter" id="contadorLista">0 itens</span>
+          </header>
+
+          <ul id="listaGastos" class="expense-list">
+            <!-- Exemplo visual -->
+            <!--
+            <li class="expense-item">
+              <div class="expense-item__info">
+                <h3>Almoço</h3>
+                <p>Categoria: Comida</p>
+              </div>
+
+              <div class="expense-item__actions">
+                <strong class="expense-item__price">R$ 25,90</strong>
+                <button type="button" class="expense-item__remove">Remover</button>
+              </div>
+            </li>
+            -->
+          </ul>
+
+          <div class="empty-state" id="estadoVazio">
+            <span class="empty-state__icon">💸</span>
+            <p>Nenhum gasto registrado ainda.</p>
+          </div>
+        </section>
+      </section>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
