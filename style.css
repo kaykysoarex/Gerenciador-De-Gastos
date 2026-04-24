@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 :root {
   --bg: #0f172a;
   --bg-soft: #111c34;
@@ -525,7 +525,6 @@ select option {
   transform: scale(0.95);
 }
 
-=======
 :root {
   --bg: #0f172a;
   --bg-soft: #111c34;
@@ -1001,5 +1000,3 @@ select option {
 .btn-remove:active {
   transform: scale(0.95);
 }
-
->>>>>>> e5eaf6e14b2dfc5696f9af5383a19700fb55c6dd
